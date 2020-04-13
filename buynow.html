@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Payment Portal</title>
+	<link rel="stylesheet" type="text/css" href="style8.css">
+
+    <script>
+    let saveFile = () => 
+    {
+        const name = document.getElementById('name');
+        const pass = document.getElementById('userid');
+        const pn = document.getElementById('PhoneNumber');
+        const ifs = document.getElementById('IFSC');
+        const ac = document.getElementById('AccountNumber');
+        const bn = document.getElementById('BranchName');
+        
+        let data = 
+            '\r Name: ' + name.value + ' \r\n ' + 
+            'UserId: ' +pass.value + ' \r\n ' + 
+            'Phone Number: ' + pn.value + ' \r\n'
+            'Thanks for selecting us'+ '\r\n ***************************************\r\n';
+        const textToBLOB = new Blob([data], { type: 'text/plain' });
+        const sFileName = 'formData.txt';
+
+        let newLink = document.createElement("a");
+        newLink.download = sFileName;
+
+
+        if (window.webkitURL != null) {
+            newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+        }
+        else {
+            newLink.href = window.URL.createObjectURL(textToBLOB);
+            newLink.style.display = "none";
+            document.body.appendChild(newLink);
+        }
+                 
+        newLink.click(); 
+    }
+</script>
+</head>
+<body>
+	<div class="title">
+		<h1>CART DETAILS</h1>
+		<h2><u>WE ARE ONE CLICK AWAY FROM YOU</u></h2>
+    </div>
+    <div class="box">
+    	<form action="">
+    		<input type="text" id="name" class="form-control" placeholder="Full Name" required><br>
+    		<input type="text" id="userid" class="form-control" placeholder="Userid" required><br>
+    		<input type="numeric" id="PhoneNumber" class="form-control" placeholder="PhoneNumber" required><br>
+               <font color="black"> Bank Name:     </font><select>
+                <option>State Bank of India</option>
+                <option>Punjab National Bank</option>
+                <option>HDFC Bank</option>
+                <option>Bank of Vadodra</option>
+                <option>Axis Bank</option>
+                <option>Paytm Money Bank</option>
+            </select><br>
+            <input type="text" id="AccountNumber" class="form-control" placeholder="AccountNumber" required><br>
+            <input type="text" id="IFSC" class="form-control" placeholder="IFSCcode" required><br>
+            <input type="text" id="BranchName" class="form-control" placeholder="BranchName" required><br>
+                        <input type="submit" id="bt" class="sub" value="PAY NOW" onclick="saveFile()"/>
+    	</form>
+    </div>
+</body>
+</html>

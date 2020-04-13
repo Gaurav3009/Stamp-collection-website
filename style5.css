@@ -1,0 +1,58 @@
+body
+{
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background: url("milky-way-2695569_960_720.webp");
+	background-size: cover;
+	font-family: Century Gothic;
+}
+.title
+{
+	margin-top: 100px;
+	color: #fff;
+}
+.title h1
+{
+	font-size: 32px;
+	line-height: 10px;
+}
+.title h2
+{
+	font-size: 16px;
+}
+form
+{
+	margin-top: 50px;
+}
+.form-control
+{
+	width: 600px;
+	background: transparent;
+	border: none;
+	outline: none;
+	border-bottom: 1px solid gray;
+	color: #fff; 
+	font-size: 18px;
+	margin-bottom: 16px;
+}
+input
+{
+	height: 45px;
+}
+form .sub
+{
+    border: 1px solid white;
+	background-color: darkorange;
+	padding: 10px 30px;
+	color: white;
+	text-decoration: none;
+	margin-right: 5px;
+	font-size: 13px;
+	text-transform: uppercase;
+}
+form.sub:hover
+{
+	background-color: #f44336;
+	cursor: pointer;
+}

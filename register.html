@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Signup</title>
+	<link rel="stylesheet" type="text/css" href="style1.css">
+	<script>
+    let saveFile = () => 
+    {
+    	const name = document.getElementById('username');
+        const pass = document.getElementById('password');
+        const email = document.getElementById('email');
+        let data = 
+            '\r Name: ' + name.value + ' \r\n ' + 
+            'Password: ' +pass.value + ' \r\n ' + 
+            'Email: ' + email.value + ' \r\n ***************************************\r\n';
+        const textToBLOB = new Blob([data], { type: 'text/plain' });
+        const sFileName = 'formData.txt';
+
+        let newLink = document.createElement("a");
+        newLink.download = sFileName;
+
+        if (window.webkitURL != null) {
+            newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+        }
+        else {
+            newLink.href = window.URL.createObjectURL(textToBLOB);
+            newLink.style.display = "none";
+            document.body.appendChild(newLink);
+        }
+
+        newLink.click(); 
+    }
+</script>
+
+</head>
+<body>
+	<div id="login-box">
+      <div class="left-box">
+      	<h1>Sign Up</h1>
+      	<input type="text" id="username" placeholder="username"/>
+      	      	<input type="text" id="email" placeholder="Email"/>
+      	      	      	<input type="password" id="password" placeholder="Password"/>
+      	      	      	      	<input type="password" name="password" placeholder="Retype"/>
+      	      	      	      	<input type="submit" id="bt"  value="Sign up" onclick="saveFile()"/>
+
+	</div>
+	<div class="right-box">
+		<span class="signinwith">Sign in with<br/>Social Network
+		</span>
+		<button  class="social facebook">Log in with Facebook</button>
+				<button class="social twitter">Log in with Twitter</button>
+						<button class="social google">Log in with Google+</button>
+	</div>
+	<div class="or">OR</div>
+</div>
+</body>
+</html>
